@@ -1,19 +1,6 @@
-## cacheMatrix.R contains:
-##    R script code for Coursera Programming Assignment 2
-##    comprised of makeCachematrix and cacheSolve functions plus
-##    example test result from November 18, 2015 using RStudio
-##  
-## cacheMatrix.R computes the inverse of a matrix
+## cachematrix.R computes the inverse of a matrix
 ## and caches it. It can re-use the cached inverse matrix rather than recompute the inverse 
 ## of the matrix. 
-##
-##
-## cacheSolve computes the inverse of a matrix or obtains the inverse from cache
-## by using the special matrix object created by makeCacheMatrix
-##
-## When a matrix is exactly singular, cacheMatrix fails and reports an error similar to the following message: 
-##      Error in solve.default(mat.data, ...) : 
-##      Lapack routine dgesv: system is exactly singular: U[3,3] = 0 
 ##
 ## A successful test result (using example from http://www.wikihow.com/Find-the-Inverse-of-a-3x3-Matrix or use 3x3
 ## calculator at http://www.wolframalpha.com/widgets/view.jsp?id=35f68681262e42ea89b0834caa51635b)
@@ -35,11 +22,7 @@
 
 
 ## makeCacheMatrix is an R function that creates a special
-## "matrix" object from a non singular matrix. It is an analogue of the makeVector function
-## but for matrices rather than vectors. References in the makeVector function (and cachemean function)
-## to the mean as mean or m have been replaced with m.inverse or m.inv respectively.
-## Similarly functions set, get, setmean and getmean have been re-labeled for emphasis
-## that the functions now are working with matrices.
+## "matrix" object from a non singular matrix. 
 
 makeCacheMatrix <- function(x = matrix()) {               ## argument x is a square, non singular matrix
  
@@ -65,8 +48,7 @@ makeCacheMatrix <- function(x = matrix()) {               ## argument x is a squ
 ## cacheSolve is an R function that determines the inverse
 ## of the "special" matrix object determined by makeCacheMatrix
 ## or that retrieves the inverse from the cache when the inverse has already been
-## calculated and the matrix has not changed. It is an analogue of
-## the function cachemean, but for matrices rather than vectors.
+## calculated and the matrix has not changed. 
 
 cacheSolve <- function(x, ...) {                    ## argument x is the list obtained from makeCacheMatrix
 
@@ -87,5 +69,3 @@ cacheSolve <- function(x, ...) {                    ## argument x is the list ob
   m.inv                                                    ## return just computed inverse 
   
 }
-
-
